@@ -22,6 +22,8 @@ import net.guipsp.liquidxp.proxies.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.liquids.LiquidDictionary;
 import net.minecraftforge.liquids.LiquidStack;
@@ -82,6 +84,10 @@ public class LiquidExperience {
 					"XPLiquifier");
 			LanguageRegistry.addName(xpLiquifier, "XP Liquifier");
 			MinecraftForge.setBlockHarvestLevel(xpLiquifier, "pickaxe", 1);
+			GameRegistry.addRecipe(new ItemStack(xpLiquifier, 1), new Object[] {
+					"OTO", "TDT", "OTO", 'T',
+					buildcraft.BuildCraftFactory.tankBlock, 'O',
+					Block.obsidian, 'D', Item.diamond });
 		}
 		{
 			xpPurifier = new XPPurifier(baseBlockID + 1, Material.rock);
@@ -92,6 +98,10 @@ public class LiquidExperience {
 			GameRegistry.registerTileEntity(XPPurifierTile.class, "XPPurifier");
 			LanguageRegistry.addName(xpPurifier, "XP Purifier");
 			MinecraftForge.setBlockHarvestLevel(xpPurifier, "pickaxe", 1);
+			GameRegistry.addRecipe(new ItemStack(xpPurifier, 1), new Object[] {
+				"OTO", "TGT", "OTO", 'T',
+				buildcraft.BuildCraftFactory.tankBlock, 'O',
+				Block.obsidian, 'G', Item.ghastTear });
 		}
 		{
 			infuser = new Infuser(baseBlockID + 2);
@@ -102,6 +112,10 @@ public class LiquidExperience {
 			GameRegistry.registerTileEntity(InfuserTile.class, "Infuser");
 			LanguageRegistry.addName(infuser, "Infuser");
 			MinecraftForge.setBlockHarvestLevel(infuser, "pickaxe", 1);
+			GameRegistry.addRecipe(new ItemStack(infuser, 1), new Object[] {
+				"OTO", "TGT", "OTO", 'T',
+				buildcraft.BuildCraftFactory.tankBlock, 'O',
+				Item.diamond, 'G', Block.enchantmentTable });
 		}
 		proxy.registerRenderers();
 	}
